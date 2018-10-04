@@ -18,20 +18,24 @@ class App extends React.Component {
         }
     }
 
-
-
-    onSelectCurrency(code) {
+    onSelectCurrency(code, select) {
         console.log('selected curency' + code)
         const {currencies} = this.state
         const curency = currencies.filter(currency => {
             return currency.code === code
         })
-        this.setState({
-            currencyB: curency[0]
-        })
+
+        if (select ==="A") {
+            this.setState({
+            currencyA: curency[0]
+        })}
+        else if (select === "B") {
+            this.setState({
+                currencyB : curency[0]
+            })
+        }
+
     }
-
-
 
         onChangeHendler(e, currency)  {
         const {currencyA, currencyB } = this.state
@@ -53,12 +57,14 @@ class App extends React.Component {
         }
 
         }
-        
+
     render() {
         const { currencies, currencyB, currencyA,currencyAval,currencyBval}  = this.state
         return <div>
-            <Select currencies={currencies} onSelectCurrency={this.onSelectCurrency.bind(this)}/>
-
+            <form className="form-inline">
+            <Select currencies={currencies} select="A" onSelectCurrency={this.onSelectCurrency.bind(this, )}/>
+            <Select currencies={currencies} select="B" onSelectCurrency={this.onSelectCurrency.bind(this, )}/>
+            </form>
 
                 <div className="row">
                     <div className="col-sm-6 currency-from-input">
@@ -75,7 +81,7 @@ class App extends React.Component {
 
                     </div>
                     <div className="col-sm-6 currency-to-input">
-                        <h3 className={`currency-flag ${currencyB.name}`}>{currencyB.name}</h3>
+                        <h3 className={`currency-flag ${currencyB.code}`}>{currencyB.name}</h3>
                         {
                             //Currency B input
                         }
@@ -98,6 +104,9 @@ class App extends React.Component {
                         </p>
                     </div>
                 </div>
+
+
+                         
             </div>
 
 

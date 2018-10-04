@@ -140,3 +140,9 @@ header {
     0% { transform: rotate(0); transform-origin: center center; }
     100% { transform: rotate(360deg); transform-origin: center center; }
 }
+
+
+.form-inline {
+    display: flex;
+    justify-content: center;
+}
