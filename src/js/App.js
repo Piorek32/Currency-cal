@@ -14,10 +14,8 @@ class App extends React.Component {
             currencyAval: data.currencies[0].sellRate,
             currencyBval: data.currencies[0].sellRate
 
-
         }
     }
-
     onSelectCurrency(code, select) {
         console.log('selected curency' + code)
         const {currencies} = this.state
@@ -36,7 +34,6 @@ class App extends React.Component {
         }
 
     }
-
         onChangeHendler(e, currency)  {
         const {currencyA, currencyB } = this.state
         if (currency === "A") {
@@ -100,15 +97,14 @@ class App extends React.Component {
                             //Update to currently selected currency
                         }
                         <p>
-                            Exchange Rate $ 1 AUD = {currencyB.sign} {currencyB.sellRate} {currencyB.name}
+                            Exchange Rate {currencyA.sign} 1 {currencyA.code} = {currencyB.sign} {currencyB.sellRate} {currencyB.name}
                         </p>
                     </div>
                 </div>
 
 
-                         
-            </div>
 
+            </div>
 
 
     }
