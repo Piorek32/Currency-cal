@@ -58,7 +58,7 @@ class App extends React.Component {
     render() {
         const { currencies, currencyB, currencyA,currencyAval,currencyBval}  = this.state
         return <div>
-            <form className="form-inline">
+            <form  className="form-inline">
             <Select currencies={currencies} select="A" onSelectCurrency={this.onSelectCurrency.bind(this, )}/>
             <Select currencies={currencies} select="B" onSelectCurrency={this.onSelectCurrency.bind(this, )}/>
             </form>
@@ -96,7 +96,7 @@ class App extends React.Component {
                         {
                             //Update to currently selected currency
                         }
-                        <p>
+                        <p className="footerSpan">
                             Exchange Rate {currencyA.sign} 1 {currencyA.code} = {currencyB.sign} {currencyB.sellRate} {currencyB.name}
                         </p>
                     </div>
